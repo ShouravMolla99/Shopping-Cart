@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button id="minusBtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input type="text" id="one" class="form-control text-center" value="1">
                            <button id="plusBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id ="currentAmount">1278</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusBtn2" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="one2" type="text" class="form-control text-center" value="1">
+                           <button id="Btn" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$<span id="currentAmountNumber">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$<span id="subTotal">1,278</span></h5>
+                        <h5>$<span id="tax">0</span></h5>
+                        <h5>$<span id="totalAmount">1,278</span></h5>
                      </div>
                   </div>
                </div>
@@ -81,9 +81,78 @@
 
       const plusButton = document.getElementById("plusBtn");
       plusButton.addEventListener("click",function(){
+         let increaseWith=1;
          const oneButton = document.getElementById("one").value
+         const oneNumber = parseInt(oneButton);
+         const totalOne = oneNumber + increaseWith;
+         document.getElementById("one").value = totalOne;
+
+         let mobileTaka = 1278;
+         const currentAmount = document.getElementById("currentAmount").innerText;
+         const currentAmountNumber = parseInt(currentAmount);
+         const totalAmount = currentAmountNumber + mobileTaka;
+         document.getElementById("currentAmount").innerText = totalAmount;
+
+         //SubTotal
          
+         const subTotal = document.getElementById("subTotal").innerText;
+         const subTotalNumber = parseInt(subTotal);
+         const subTotalAmount =  subTotalNumber + totalAmount;
+         document.getElementById("subTotal").innerText = subTotalAmount;
+
+
+
       })
+
+      const MinusButton = document.getElementById("minusBtn");
+      MinusButton.addEventListener("click",function(){
+         let increaseWith=-1;
+         const oneButton = document.getElementById("one").value
+         const oneNumber = parseInt(oneButton);
+         const totalOne = oneNumber + increaseWith;
+         document.getElementById("one").value = totalOne;
+
+         let mobileTaka = -1278;
+         const currentAmount = document.getElementById("currentAmount").innerText;
+         const currentAmountNumber = parseInt(currentAmount);
+         const totalAmount = currentAmountNumber + mobileTaka;
+         document.getElementById("currentAmount").innerText = totalAmount;
+      })
+
+      ///Second Portion
+
+      const plusButtonBtn = document.getElementById("Btn");
+      plusButtonBtn.addEventListener("click",function(){
+         let increaseWith=1;
+         const oneButton = document.getElementById("one2").value
+         const oneNumber = parseInt(oneButton);
+         const totalOne = oneNumber + increaseWith;
+         document.getElementById("one2").value = totalOne;
+
+         let Amount = 59;
+         const currentAmount = document.getElementById("currentAmountNumber").innerText;
+         const currentAmountNumber = parseInt(currentAmount);
+         const totalAmount = currentAmountNumber + Amount;
+         document.getElementById("currentAmountNumber").innerText = totalAmount;
+
+      })
+
+      const MinusButtonBtn = document.getElementById("minusBtn2");
+      MinusButtonBtn.addEventListener("click",function(){
+         let increaseWith=-1;
+         const oneButton = document.getElementById("one2").value
+         const oneNumber = parseInt(oneButton);
+         const totalOne = oneNumber + increaseWith;
+         document.getElementById("one2").value = totalOne;
+
+         let Amount = -59;
+         const currentAmount = document.getElementById("currentAmountNumber").innerText;
+         const currentAmountNumber = parseInt(currentAmount);
+         const totalAmount = currentAmountNumber + Amount;
+         document.getElementById("currentAmountNumber").innerText = totalAmount;
+      })
+
+
 
    </script>
 </body>
